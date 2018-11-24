@@ -3,7 +3,7 @@ import firestore from 'firebase/firestore';
 
 // Initialize Firebase.
 var config = {
-  apiKey: "AIzaSyAen5ygjV6RpN32mEp4anC24d653MZPWHA",
+  apiKey: process.env.FIREBASE_KEY,
   authDomain: "vue-firebase-chat-6996c.firebaseapp.com",
   databaseURL: "https://vue-firebase-chat-6996c.firebaseio.com",
   projectId: "vue-firebase-chat-6996c",
@@ -11,5 +11,6 @@ var config = {
   messagingSenderId: "1079916072753"
 };
 const firebaseApp = firebase.initializeApp(config);
+firebaseApp.firestore().settings({ timestampsInSnapshots: true });
 
 export default firebaseApp.firestore();
